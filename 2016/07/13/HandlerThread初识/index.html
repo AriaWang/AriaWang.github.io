@@ -7,24 +7,18 @@
   <title>HandlerThread初识 | Douyer&#39;s home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="HandlerThread初识
-平时很少接触HandlerThread，对它的了解仅限于名字，一直以为是自带handler的Thread。直到一次面试，面试官问了这个问题，才引起重视。当时脑子一片空白，只能按字面意思猜着回答，结果当然悲剧了~~(&amp;gt;_&amp;lt;)~~   被面试官鄙视之后，我决定破釜沉舟100年……
-
-看HandlerThread的源码发现，这原来不是自带handler的Thr">
+平时很少接触HandlerThread，对它的了解仅限于名字，一直以为是自带handler的Thread。直到一次面试，面试官问了这个问题，才引起重视。当时脑子一片空白，只能按字面意思猜着回答，结果当然悲剧了~~(&amp;gt;_&amp;lt;)~~   被面试官鄙视之后，我决定破釜沉舟100年……">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HandlerThread初识">
 <meta property="og:url" content="http://love.xiachuanyun.cn/2016/07/13/HandlerThread初识/index.html">
 <meta property="og:site_name" content="Douyer's home">
 <meta property="og:description" content="HandlerThread初识
-平时很少接触HandlerThread，对它的了解仅限于名字，一直以为是自带handler的Thread。直到一次面试，面试官问了这个问题，才引起重视。当时脑子一片空白，只能按字面意思猜着回答，结果当然悲剧了~~(&amp;gt;_&amp;lt;)~~   被面试官鄙视之后，我决定破釜沉舟100年……
-
-看HandlerThread的源码发现，这原来不是自带handler的Thr">
-<meta property="og:updated_time" content="2016-07-13T08:09:43.438Z">
+平时很少接触HandlerThread，对它的了解仅限于名字，一直以为是自带handler的Thread。直到一次面试，面试官问了这个问题，才引起重视。当时脑子一片空白，只能按字面意思猜着回答，结果当然悲剧了~~(&amp;gt;_&amp;lt;)~~   被面试官鄙视之后，我决定破釜沉舟100年……">
+<meta property="og:updated_time" content="2016-07-13T08:13:26.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HandlerThread初识">
 <meta name="twitter:description" content="HandlerThread初识
-平时很少接触HandlerThread，对它的了解仅限于名字，一直以为是自带handler的Thread。直到一次面试，面试官问了这个问题，才引起重视。当时脑子一片空白，只能按字面意思猜着回答，结果当然悲剧了~~(&amp;gt;_&amp;lt;)~~   被面试官鄙视之后，我决定破釜沉舟100年……
-
-看HandlerThread的源码发现，这原来不是自带handler的Thr">
+平时很少接触HandlerThread，对它的了解仅限于名字，一直以为是自带handler的Thread。直到一次面试，面试官问了这个问题，才引起重视。当时脑子一片空白，只能按字面意思猜着回答，结果当然悲剧了~~(&amp;gt;_&amp;lt;)~~   被面试官鄙视之后，我决定破釜沉舟100年……">
   
     <link rel="alternative" href="/atom.xml" title="Douyer&#39;s home" type="application/atom+xml">
   
@@ -221,6 +215,7 @@
         <h4 id="HandlerThread初识"><a href="#HandlerThread初识" class="headerlink" title="HandlerThread初识"></a>HandlerThread初识</h4><blockquote>
 <p>平时很少接触HandlerThread，对它的了解仅限于名字，一直以为是自带handler的Thread。直到一次面试，面试官问了这个问题，才引起重视。当时脑子一片空白，只能按字面意思猜着回答，结果当然悲剧了<del>~~(&gt;_&lt;)</del>~~   被面试官鄙视之后，我决定破釜沉舟100年……</p>
 </blockquote>
+<a id="more"></a>
 <p>看HandlerThread的源码发现，这原来不是自带handler的Thread啊，原来只是给Thread加了Looper管理，瞬间觉着自己当时被鄙视也是应该的！</p>
 <p>HandlerThread 构造函数基本跟Thread没区别，只是多了个设置线程优先级</p>
 <figure class="highlight plain"><figcaption><span>basic</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public HandlerThread(String name) &#123;</div><div class="line">   super(name);</div><div class="line">   mPriority = Process.THREAD_PRIORITY_DEFAULT;</div><div class="line">&#125;</div></pre></td></tr></table></figure>

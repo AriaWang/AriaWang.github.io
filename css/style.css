@@ -1462,7 +1462,7 @@ a {
   font-size: 12px;
 }
 .article-entry pre,
-.highlight {
+overflow: hidden .highlight {
   background: #272822;
   margin: 10px 0;
   padding: 10px 10px;
@@ -1470,8 +1470,8 @@ a {
   color: #4c4c4c;
   line-height: 22.400000000000002px;
 }
-.highlight .gutter pre,
-.gist .gist-file .gist-data .line-numbers {
+overflow: hidden .highlight .gutter pre,
+overflow: hidden .gist .gist-file .gist-data .line-numbers {
   color: #666;
 }
 .article-entry pre,
@@ -1492,52 +1492,52 @@ overflow: hidden code {
   padding: 0;
   color: #fff;
 }
-.highlight {
+overflow: hidden .highlight {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-.highlight pre {
+overflow: hidden .highlight pre {
   border: none;
   margin: 0;
   padding: 0;
 }
-.highlight table {
+overflow: hidden .highlight table {
   margin: 0;
   width: auto;
 }
-.highlight td {
+overflow: hidden .highlight td {
   border: none;
   padding: 0;
 }
-.highlight figcaption {
+overflow: hidden .highlight figcaption {
   font-size: 0.85em;
   color: highlight-comment;
   line-height: 1em;
   margin-bottom: 1em;
 }
-.highlight figcaption:before,
-.highlight figcaption:after {
+overflow: hidden .highlight figcaption:before,
+overflow: hidden .highlight figcaption:after {
   content: "";
   display: table;
 }
-.highlight figcaption:after {
+overflow: hidden .highlight figcaption:after {
   clear: both;
 }
-.highlight figcaption a {
+overflow: hidden .highlight figcaption a {
   float: right;
 }
-.highlight .gutter pre {
+overflow: hidden .highlight .gutter pre {
   text-align: right;
   padding-right: 20px;
 }
-.highlight .gutter pre .line {
+overflow: hidden .highlight .gutter pre .line {
   text-shadow: none;
 }
-.highlight .line {
+overflow: hidden .highlight .line {
   font-size: 15px;
   height: 15px;
 }
-.gist {
+overflow: hidden .gist {
   margin: 0 -20px;
   border-style: solid;
   border-color: #ddd;
@@ -1545,29 +1545,29 @@ overflow: hidden code {
   background: #272822;
   padding: 15px 20px 15px 0;
 }
-.gist .gist-file {
+overflow: hidden .gist .gist-file {
   border: none;
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
   margin: 0;
 }
-.gist .gist-file .gist-data {
+overflow: hidden .gist .gist-file .gist-data {
   background: none;
   border: none;
 }
-.gist .gist-file .gist-data .line-numbers {
+overflow: hidden .gist .gist-file .gist-data .line-numbers {
   background: none;
   border: none;
   padding: 0 20px 0 0;
 }
-.gist .gist-file .gist-data .line-data {
+overflow: hidden .gist .gist-file .gist-data .line-data {
   padding: 0 !important;
 }
-.gist .gist-file .highlight {
+overflow: hidden .gist .gist-file .highlight {
   margin: 0;
   padding: 0;
   border: none;
 }
-.gist .gist-file .gist-meta {
+overflow: hidden .gist .gist-file .gist-meta {
   background: #272822;
   color: highlight-comment;
   font: 0.85em "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1576,11 +1576,11 @@ overflow: hidden code {
   margin-top: 1em;
   margin-left: 20px;
 }
-.gist .gist-file .gist-meta a {
+overflow: hidden .gist .gist-file .gist-meta a {
   color: #258fb8;
   font-weight: normal;
 }
-.gist .gist-file .gist-meta a:hover {
+overflow: hidden .gist .gist-file .gist-meta a:hover {
   text-decoration: underline;
 }
 pre .comment {

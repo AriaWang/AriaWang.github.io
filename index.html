@@ -67,7 +67,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>A propos</li>
 						
 					</ul>
 				</div>
@@ -197,39 +197,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p> android 动画分为 Tween动画、Frame动画、Property动画，前面2种比较简单，平时工作中都有涉及，顾不单独成文。参考链接：<a href="http://www.lightskystreet.com/2015/05/23/anim_basic_knowledge/" target="_blank" rel="external">http://www.lightskystreet.com/2015/05/23/anim_basic_knowledge/</a>      <a href="http://blog.csdn.net/lmj623565791/article/details/38067475" target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/details/38067475</a></p>
+<p> android 动画分为 Tween动画、Frame动画、Property动画，前面2种比较简单，平时工作中都有涉及，顾不单独成文。参考链接：<a href="http://www.lightskystreet.com/2015/05/23/anim_basic_knowledge/">http://www.lightskystreet.com/2015/05/23/anim_basic_knowledge/</a>      <a href="http://blog.csdn.net/lmj623565791/article/details/38067475">http://blog.csdn.net/lmj623565791/article/details/38067475</a></p>
 </blockquote>
-<p>ObjectAnimator是android属性动画 的一个实现类，继承自ValueAnimator，通过设置需要改变的属性、起始值、动画时长即可方便的实现一次属性动画。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(view, View.ROTATION, <span class="number">0.0F</span>, <span class="number">360.0F</span>);</div><div class="line">animator.setDuration(<span class="number">500</span>);</div><div class="line">animator.setRepeatCount(ValueAnimator.INFINITE);</div><div class="line">animator.setRepeatMode(ValueAnimator.RESTART);</div><div class="line">animator.setInterpolator(<span class="keyword">new</span> LinearInterpolator());</div><div class="line">animator.start();</div></pre></td></tr></table></figure>
-<ul>
-<li>setRepeatCount() 设置动画的重复次数，int值，这里设为INFINITE，无限循环；</li>
-<li>setRepeatMode() 设置一次动画结束后，下一次动画的启动方式，int值；                                   RESTART–按顺序再执行一次， REVERSE–倒序执行一次；</li>
-<li>setInterpolator()  设置动画插值器，也可自定义插值器；插值器</li>
-</ul>
-<p>要同时改变一个view的多个属性，可以使用PropertyValuesHolder或者AnimatorSet</p>
-<blockquote>
-<p>PropertyValuesHolder</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat(<span class="string">"alpha"</span>, <span class="number">1f</span>,</div><div class="line">                <span class="number">0f</span>, <span class="number">1f</span>);</div><div class="line">PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat(<span class="string">"scaleX"</span>, <span class="number">1f</span>,</div><div class="line">                <span class="number">0</span>, <span class="number">1f</span>);</div><div class="line">PropertyValuesHolder pvhZ = PropertyValuesHolder.ofFloat(<span class="string">"scaleY"</span>, <span class="number">1f</span>,</div><div class="line">                <span class="number">0</span>, <span class="number">1f</span>);</div><div class="line">PropertyValuesHolder pvhRx = PropertyValuesHolder.ofFloat(<span class="string">"rotationX"</span>, <span class="number">0.0F</span>, <span class="number">360F</span>, <span class="number">0.0F</span>);</div><div class="line">PropertyValuesHolder pvhRy = PropertyValuesHolder.ofFloat(<span class="string">"rotationY"</span>, <span class="number">0.0F</span>, <span class="number">360F</span>, <span class="number">0.0F</span>);</div><div class="line">ObjectAnimator.ofPropertyValuesHolder(view, pvhX, pvhY,pvhZ, pvhRx, pvhRy).setDuration(<span class="number">1000</span>).start();</div></pre></td></tr></table></figure>
-<blockquote>
-<p>AnimatorSet</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ObjectAnimator animator1= ObjectAnimator.ofFloat(ball, <span class="string">"scaleX"</span>, <span class="number">1.0f</span>, <span class="number">2f</span>, <span class="number">1.0f</span>);</div><div class="line">ObjectAnimator animator2= ObjectAnimator.ofFloat(ball, <span class="string">"scaleY"</span>, <span class="number">1.0f</span>, <span class="number">2f</span>, <span class="number">1.0f</span>);</div><div class="line">ObjectAnimator animator3= ObjectAnimator.ofFloat(ball, <span class="string">"y"</span>, <span class="number">0</span>, ScreenUtil.getScreenHeight(<span class="keyword">this</span>)-ball.getHeight());</div><div class="line">ObjectAnimator animator4= ObjectAnimator.ofFloat(ball, <span class="string">"y"</span>, <span class="number">0</span>);</div><div class="line">AnimatorSet animatorSet = <span class="keyword">new</span> AnimatorSet();</div><div class="line">animatorSet.play(animator1).with(animator2).with(animator3);</div><div class="line">animatorSet.play(animator4).after(animator3);</div><div class="line">animatorSet.setDuration(<span class="number">1000</span>);</div><div class="line">animatorSet.start();</div></pre></td></tr></table></figure>
-<p>使用PropertyValuesHolder只需创建一个animator，在同一时间所有属性值同时改变；AnimatorSet更灵活一些，可以设置优先改变的属性，但需要创建多个animator。</p>
-<p>此外，可以添加listener监听动画过程；</p>
-<blockquote>
-<p>ObjectAnimator.addUpdateListener()</p>
-</blockquote>
-<p>addUpdateLister(AnimatorUpdateListener listener) 可以修改动画运行过程中，对象的属性值，多用于ValueAnimator</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">ValueAnimator animator = <span class="keyword">new</span> ValueAnimator();</div><div class="line">animator.setDuration(<span class="number">1000</span>);</div><div class="line">animator.setObjectValues(<span class="keyword">new</span> PointF(<span class="number">0</span>,<span class="number">0</span>));</div><div class="line">animator.setInterpolator(<span class="keyword">new</span> LinearInterpolator());</div><div class="line">animator.setEvaluator((fraction, startValue, endValue) -&gt; &#123;</div><div class="line">    PointF point = <span class="keyword">new</span> PointF();</div><div class="line">    point.x = <span class="number">200</span> * fraction * <span class="number">3</span>;</div><div class="line">    point.y = <span class="number">0.5F</span> * <span class="number">200</span> * (fraction * <span class="number">3</span>) * (fraction * <span class="number">3</span>);</div><div class="line">    <span class="keyword">return</span> point;</div><div class="line">&#125;);</div><div class="line">animator.start();</div><div class="line">animator.addUpdateListener(<span class="keyword">new</span> ValueAnimator.AnimatorUpdateListener() &#123;</div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator animation)</span> </span>&#123;</div><div class="line">        PointF pointF = (PointF) animation.getAnimatedValue();</div><div class="line">        ball.setX(pointF.x);</div><div class="line">        ball.setY(pointF.y);</div><div class="line">   &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>ObjectAnimator.addListener()</p>
-</blockquote>
-<p>addListenter(AnimatorListener listener)  用于监听动画的生命周期；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">animator.addListener(<span class="keyword">new</span> Animator.AnimatorListener() &#123;</div><div class="line">      <span class="meta">@Override</span></div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animator animation)</span> </span>&#123;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="meta">@Override</span></div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span> </span>&#123;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="meta">@Override</span></div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationCancel</span><span class="params">(Animator animation)</span> </span>&#123;</div><div class="line"></div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="meta">@Override</span></div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animator animation)</span> </span>&#123;</div><div class="line"></div><div class="line">      &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>如果只需要监听动画的某一个状态，也可以使用AnimatorListenerAdapter</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">animator.addListener(<span class="keyword">new</span> AnimatorListenerAdapter() &#123;</div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span> </span>&#123;</div><div class="line">     &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-
+<p>ObjectAnimator是android属性动画 的一个实现类，继承自ValueAnimator，通过设置需要改变的属性、起始值、动画时长即可方便的实现一次属性动画。<br>
       
     </div>
     
@@ -242,6 +212,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/13/ObjectAnimator初探/#more">Read More >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://love.xiachuanyun.cn/2016/07/13/ObjectAnimator初探/index.html">
 <meta property="og:site_name" content="Douyer's home">
 <meta property="og:description" content="android 动画分为 Tween动画、Frame动画、Property动画，前面2种比较简单，平时工作中都有涉及，顾不单独成文。参考链接：http://www.lightskystreet.com/2015/05/23/anim_basic_knowledge/      http://blog.csdn.net/lmj623565791/article/details/38067475">
-<meta property="og:updated_time" content="2016-07-18T08:19:12.459Z">
+<meta property="og:updated_time" content="2016-07-18T08:21:23.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ObjectAnimator初探">
 <meta name="twitter:description" content="android 动画分为 Tween动画、Frame动画、Property动画，前面2种比较简单，平时工作中都有涉及，顾不单独成文。参考链接：http://www.lightskystreet.com/2015/05/23/anim_basic_knowledge/      http://blog.csdn.net/lmj623565791/article/details/38067475">
@@ -71,7 +71,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>A propos</li>
 						
 					</ul>
 				</div>
@@ -212,8 +212,7 @@
         <blockquote>
 <p> android 动画分为 Tween动画、Frame动画、Property动画，前面2种比较简单，平时工作中都有涉及，顾不单独成文。参考链接：<a href="http://www.lightskystreet.com/2015/05/23/anim_basic_knowledge/" target="_blank" rel="external">http://www.lightskystreet.com/2015/05/23/anim_basic_knowledge/</a>      <a href="http://blog.csdn.net/lmj623565791/article/details/38067475" target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/details/38067475</a></p>
 </blockquote>
-<p>ObjectAnimator是android属性动画 的一个实现类，继承自ValueAnimator，通过设置需要改变的属性、起始值、动画时长即可方便的实现一次属性动画。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(view, View.ROTATION, <span class="number">0.0F</span>, <span class="number">360.0F</span>);</div><div class="line">animator.setDuration(<span class="number">500</span>);</div><div class="line">animator.setRepeatCount(ValueAnimator.INFINITE);</div><div class="line">animator.setRepeatMode(ValueAnimator.RESTART);</div><div class="line">animator.setInterpolator(<span class="keyword">new</span> LinearInterpolator());</div><div class="line">animator.start();</div></pre></td></tr></table></figure>
+<p>ObjectAnimator是android属性动画 的一个实现类，继承自ValueAnimator，通过设置需要改变的属性、起始值、动画时长即可方便的实现一次属性动画。<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(view, View.ROTATION, <span class="number">0.0F</span>, <span class="number">360.0F</span>);</div><div class="line">animator.setDuration(<span class="number">500</span>);</div><div class="line">animator.setRepeatCount(ValueAnimator.INFINITE);</div><div class="line">animator.setRepeatMode(ValueAnimator.RESTART);</div><div class="line">animator.setInterpolator(<span class="keyword">new</span> LinearInterpolator());</div><div class="line">animator.start();</div></pre></td></tr></table></figure></p>
 <ul>
 <li>setRepeatCount() 设置动画的重复次数，int值，这里设为INFINITE，无限循环；</li>
 <li>setRepeatMode() 设置一次动画结束后，下一次动画的启动方式，int值；                                   RESTART–按顺序再执行一次， REVERSE–倒序执行一次；</li>

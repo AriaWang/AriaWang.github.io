@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Douyer's home">
 <meta property="og:description" content="HandlerThread初识
 平时很少接触HandlerThread，对它的了解仅限于名字，一直以为是自带handler的Thread。直到一次面试，面试官问了这个问题，才引起重视。当时脑子一片空白，只能按字面意思猜着回答，结果当然悲剧了~~(&amp;gt;_&amp;lt;)~~   被面试官鄙视之后，我决定破釜沉舟100年……">
-<meta property="og:updated_time" content="2016-07-13T09:01:31.785Z">
+<meta property="og:updated_time" content="2016-07-13T09:09:00.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HandlerThread初识">
 <meta name="twitter:description" content="HandlerThread初识
@@ -225,13 +225,27 @@
 <p>对外提供getLooper()函数，以供handler使用；</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Looper <span class="title">getLooper</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!isAlive()) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">// If the thread has been started, wait until the looper has been created.</span></div><div class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</div><div class="line">            <span class="keyword">while</span> (isAlive() &amp;&amp; mLooper == <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    wait();</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> mLooper;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Activity中，handler不用对looper赋值，是因为app启动时，系统已经对UI线程的looper赋值了。</p>
-
+<h5 id="Handler"><a href="#Handler" class="headerlink" title="Handler"></a>Handler</h5>
       
     </div>
     
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2016/07/13/ObjectAnimator初探/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          ObjectAnimator初探
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 

@@ -18,16 +18,13 @@
 最近项目要求写一个成长等级的控件，有一些动画，需要自定义View，写此文以记录编写代码过程的心路历程，方便以后查阅。
 参考链接：http://blog.csdn.net/tyk0910/article/details/51594479
 本文Github链接：https://github.com/AriaWang/GradeView">
-<meta property="og:image" content="https://github.com/AriaWang/GradeView/blob/master/gif/grade1.gif">
-<meta property="og:image" content="https://github.com/AriaWang/AriaWang.github.io/blob/master/img/gif/grade1.gif">
-<meta property="og:updated_time" content="2016-08-19T09:08:14.749Z">
+<meta property="og:updated_time" content="2016-08-19T09:13:44.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义View--成长值控件GradeView">
 <meta name="twitter:description" content="自定义View–成长值控件GradeView
 最近项目要求写一个成长等级的控件，有一些动画，需要自定义View，写此文以记录编写代码过程的心路历程，方便以后查阅。
 参考链接：http://blog.csdn.net/tyk0910/article/details/51594479
 本文Github链接：https://github.com/AriaWang/GradeView">
-<meta name="twitter:image" content="https://github.com/AriaWang/GradeView/blob/master/gif/grade1.gif">
   
     <link rel="alternative" href="/atom.xml" title="Douyer&#39;s home" type="application/atom+xml">
   
@@ -227,8 +224,13 @@
 <p>本文Github链接：<a href="https://github.com/AriaWang/GradeView" target="_blank" rel="external">https://github.com/AriaWang/GradeView</a></p>
 </blockquote>
 <a id="more"></a>
-<p>国际惯例先上效果图：</p>
-<p><img src="https://github.com/AriaWang/GradeView/blob/master/gif/grade1.gif" alt="image"><img src="https://github.com/AriaWang/AriaWang.github.io/blob/master/img/gif/grade1.gif" alt="grade1"></p>
+<p>自定义View拢共分四步：</p>
+<ol>
+<li>继承自View；</li>
+<li>计算控件高度，重写OnMeasure；</li>
+<li>重写ondraw(Canvas)；</li>
+<li>根据需要重写onTouchEvent();</li>
+</ol>
 
       
     </div>

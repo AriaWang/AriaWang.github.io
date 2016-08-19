@@ -19,7 +19,7 @@
 参考链接：http://blog.csdn.net/tyk0910/article/details/51594479
 本文Github链接：https://github.com/AriaWang/GradeView">
 <meta property="og:image" content="https://github.com/AriaWang/GradeView/blob/master/gif/grade1.gif?raw=true">
-<meta property="og:updated_time" content="2016-08-19T09:33:32.055Z">
+<meta property="og:updated_time" content="2016-08-19T09:42:04.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义View--成长值控件GradeView">
 <meta name="twitter:description" content="自定义View–成长值控件GradeView
@@ -82,7 +82,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -235,7 +235,9 @@
 <li>重写ondraw(Canvas)；</li>
 <li>根据需要重写onTouchEvent();</li>
 </ol>
-
+<h5 id="1、继承自View"><a href="#1、继承自View" class="headerlink" title="1、继承自View"></a>1、继承自View</h5><p>自定义View一般需要实现一下三个构造方法，这三个构造方法是一层调用一层的，属于递进关系。因此，我们只需要在最后一个构造方法中来初始化一些参数或者获取View的属性(如果有自定义属性的话)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GradeView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GradeView</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GradeView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, attrs,<span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GradeView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</div><div class="line">        init();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="2、重写onMeasure"><a href="#2、重写onMeasure" class="headerlink" title="2、重写onMeasure()"></a>2、重写onMeasure()</h5><h5 id="3、重写onDraw"><a href="#3、重写onDraw" class="headerlink" title="3、重写onDraw()"></a>3、重写onDraw()</h5><h5 id="4、重写onTouchEvent"><a href="#4、重写onTouchEvent" class="headerlink" title="4、重写onTouchEvent()"></a>4、重写onTouchEvent()</h5>
       
     </div>
     
